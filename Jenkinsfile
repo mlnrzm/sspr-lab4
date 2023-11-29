@@ -26,7 +26,7 @@ pipeline {
         stage("Push Image To Docker Hub") {
             steps {
                 withCredentials([string(credentialsId: 'sspr_4', variable: 'sspr4')]) {
-                    bat "docker login --username mlnrzm --password Eroder57"
+                    bat "docker login --username mlnrzm --password ${sspr4}"
                     bat 'docker push mlnrzm/sspr4:latest'
                 }
             }
